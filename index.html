@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Friends</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-image">
+      <!-- Removed class="heart" so the full image displays -->
+      <img id="friend-image" src="images/Abeloth_Artwork.jpg" alt="Andrew" />
+    </div>
+    <div class="profile-text">
+      <h1 id="friend-name">Andrew</h1>
+      <p id="friend-lore">
+        A dragonborn born of flame and honor. Andrew wields a legendary sword passed down through his family for generations. The weapon sings with ancient power, and so does his soul. He walks with the pride of his ancestors, unshaken and noble.
+      </p>
+      <div class="nav-buttons">
+        <button onclick="prevFriend()">← Previous</button>
+        <button onclick="nextFriend()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const friends = [
+    {
+  name: "Andrew",
+  image: "images/Abeloth_Artwork.jpg",
+  lore: `Abeloth, born of the Ashen Peaks, is a dragonborn whose soul burns with the legacy of flame and steel.
+From birth, he was bound to the blade of his ancestors — a greatsword known as Emberwake, forged in the dying breath of a volcano and cooled in the blood of kings.
+
+As the last son of House Vulmir, he carries not only the weapon but the oath: “Honor in fire, death before disgrace.”
+
+Trained in warcraft before he could walk, Abeloth was raised among warriors and ghosts. His father fell in battle against the Frostmaw Warlord, and his mother vanished beneath the ruins of a collapsing stronghold. Alone, Abeloth chose vengeance not as a path, but as a purpose.
+
+His sword, once ceremonial, became soaked in the blood of tyrants, monsters, and even fallen gods. But Abeloth is not a brute — he is a guardian.
+
+Behind his fierce eyes lies a heart burdened with the weight of generations. He fights not for glory, but to protect those he calls kin. His voice is calm, his judgment swift, and his loyalty unshakable.
+
+To face him in battle is to stand against the fury of every Vulmir who came before.
+
+They call him the Flame Unyielding — not because he cannot fall, but because he always rises.`
+},
+{
+  name: "John",
+  image: "images/Clover_Artwork.png",
+  lore: `Clover is a gnome of ill repute and irresistible charm — a nimble-handed kleptomaniac with a sparkle in his eye and a dagger in his boot.
+
+Born in the gutter markets of Thistlewharf, Clover never knew comfort, only cunning. He didn’t learn to walk; he learned to disappear. By the time he was twelve, he had already stolen the keys to the mayor’s vault… and sold them back to him twice.
+
+Adventure, to Clover, isn’t a calling — it’s a compulsion. He thrives in the chaos of battle not for honor, but for opportunity.
+
+Each fallen foe becomes part of his grotesque collection: ears, teeth, trinkets, tokens — anything that tells a story. Some say it’s madness, others say it’s art. Clover calls it inventory.
+
+Despite his twisted trophy-keeping, there’s a clever kindness buried under the mischief. He’ll steal your purse, but slip a healing potion in your pocket when you’re not looking.
+
+He laughs at danger, mocks death, and treats life as a game, one where only the clever survive.
+
+They call him the Laughing Shadow. And when his high-pitched cackle echoes from the treetops, you’ll either be robbed, rescued… or both.`
+},
+{
+  name: "Jon",
+  image: "images/Thaddeus_Artwork.jpeg",
+  lore: `Thaddeus — bard, rogue, charmer, menace.
+
+A man of many masks and even more stories, though the truth behind them is anyone’s guess. Raised among traveling performers, he learned early that a well-timed joke could feed you, and a well-placed lie could save your life.
+
+With a silver tongue and quicker hands, Thaddeus walks the line between hero and scoundrel. He’s as likely to seduce a baroness as he is to pick her pocket.
+
+Songs follow him — some sung in taverns with mugs raised high, others whispered in alleyways where lanterns don’t reach. Both are true, in their own way.
+
+He doesn't fight like a soldier; he dances like a storm. His blade flickers like a punchline you didn’t see coming, and his voice carries enchantments wrapped in wit.
+
+Those who face him rarely know if they’ve been defeated or entertained.
+
+What he hides behind the smirk is his own secret — but if you earn his loyalty, he’ll fight for you as fiercely as he flatters.
+
+Just don’t ask him for the full story. He’ll never tell it the same way twice.`
+}
+    ];
+
+    let currentIndex = 0;
+
+    function updateProfile() {
+      const friend = friends[currentIndex];
+      document.getElementById("friend-name").textContent = friend.name;
+      document.getElementById("friend-lore").textContent = friend.lore;
+      document.getElementById("friend-image").src = friend.image;
+      document.getElementById("friend-image").alt = friend.name;
+    }
+
+    function nextFriend() {
+      currentIndex = (currentIndex + 1) % friends.length;
+      updateProfile();
+    }
+
+    function prevFriend() {
+      currentIndex = (currentIndex - 1 + friends.length) % friends.length;
+      updateProfile();
+    }
+  </script>
+</body>
+</html>
+

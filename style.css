@@ -1,0 +1,104 @@
+/* Page background and global styles */
+body {
+    background-color: #000;
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 60px;
+    padding: 50px;
+    box-sizing: border-box;
+  }
+  
+  /* Full image shown on the left */
+  .profile-image img {
+    max-width: 600px;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .profile-text {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+  }
+  
+  .profile-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-buttons {
+    margin-top: 30px;
+  }
+  
+  .nav-buttons button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .nav-buttons button:hover {
+    background: white;
+    color: black;
+  }
+  
+  /* ✅ Mobile-friendly adjustments */
+  @media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+      height: auto;
+      padding: 30px 20px;
+      gap: 30px;
+      text-align: center;
+    }
+  
+    .profile-image img {
+      max-width: 90vw;
+      max-height: 60vh;
+    }
+  
+    .profile-text {
+      font-size: 16px;
+      max-width: 90vw;
+    }
+  
+    .profile-text h1 {
+      font-size: 28px;
+    }
+  
+    /* 🔧 Fix nav buttons pinned above the mobile browser bar */
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 0;
+      z-index: 999;
+    }
+  
+    .nav-buttons button {
+      flex: 1 1 auto;
+      max-width: 130px;
+    }
+  }
+  
