@@ -39,4 +39,7 @@ document.addEventListener("mousemove", (e) => {
 let currentIndex = Math.floor(Math.random() * friends.length);
 updateProfile();
 
-
+//D20 dice role
+function rollD20() {
+  return 1 + Math.floor(Math.random() * 20);
+}
